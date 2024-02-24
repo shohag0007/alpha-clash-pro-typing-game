@@ -18,7 +18,17 @@ console.log(playerPressed, currentAlphabet);
 // check right or wrong key pressed
 if(playerPressed === expectedAlphabet){
     console.log('you get a point');
-    console.log('You have pressed correctly', expectedAlphabet);
+    // update score
+      // 1. get the current ScreenOrientation
+       const currentScoreElement = document.getElementById('current-score');
+       const currentScoreText = currentScoreElement.innerText;
+       const currentScore = parseInt(currentScoreText);
+       console.log(currentScore);
+      // 2. increase the score by 1.
+      const newScore = currentScore + 1;
+       // 3. show the updated score
+       currentScoreElement.innerText = newScore;
+    // start a new round
     removeBackgroundColorById(expectedAlphabet);
     continueGame();
 }
